@@ -10,8 +10,13 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GameServer {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GameServer.class);
+
     public static void main(String[] args) {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -27,7 +32,9 @@ public class GameServer {
                         new HttpServerCodec(), // Http 服务器编解码器
                         new HttpObjectAggregator(65535), // 内容长度限制
                         new WebSocketServerProtocolHandler("/websocket"), // Websocket协议处理器，在这里处理握手、ping、pong等消息
-                        new GameMsgHandler()
+                        new GameMsgDecoder(), // 自定义的消息编码器
+                        new GameMsgEncoder(), // 自定义的消息编码器
+                        new GameMsgHandler() // 自定义的消息编码器
                     );
 
                 }
@@ -36,8 +43,9 @@ public class GameServer {
             // 注意：实际项目中会使用 argArray 中的参数来指定端口号
             ChannelFuture f = bootstrap.bind(12345).sync();
             if (f.isSuccess()) {
-                System.out.println("服务器启动成功");
+                LOGGER.info("服务器启动成功");
             }
+
             // 等待服务器信道关闭，
             // 也就是不要退出应用程序
             // 让应用程序可以一直提供服务
