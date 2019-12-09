@@ -1,4 +1,4 @@
-package com.burning8393.herostory;
+package com.burning8393.herostory.model;
 
 /**
  * 用户

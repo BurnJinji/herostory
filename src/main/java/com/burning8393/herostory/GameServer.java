@@ -1,5 +1,6 @@
 package com.burning8393.herostory;
 
+import com.burning8393.herostory.cmdhandler.CmdHandlerFactory;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -18,6 +19,9 @@ public class GameServer {
     private static final Logger LOGGER = LoggerFactory.getLogger(GameServer.class);
 
     public static void main(String[] args) {
+        CmdHandlerFactory.init();
+        GameMsgRecongnizer.init();
+
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
