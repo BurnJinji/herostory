@@ -8,7 +8,7 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 /**
  * 广播员
  */
-public class BroadCaster {
+public final class BroadCaster {
     /**
      * 客户端信道数组，一定要使用 static，否则无法实现群发
      */

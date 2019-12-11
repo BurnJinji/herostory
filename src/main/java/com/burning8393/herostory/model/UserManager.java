@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 用户管理器
  */
-public class UserManager {
+public final class UserManager {
     /**
      * 用户字典
      */
@@ -33,7 +33,7 @@ public class UserManager {
      * 根据用户 id 移除用户
      * @param id
      */
-    public static void removeUserById(Integer id) {
+    public static void removeUserById(int id) {
         _userMap.remove(id);
     }
 
