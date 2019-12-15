@@ -96,9 +96,6 @@ public final class CmdHandlerFactory {
             }
 
         }
-//        _handlerMap.put(GameMsgProtocol.UserEntryCmd.class, new UserEntryCmdHandler());
-//        _handlerMap.put(GameMsgProtocol.WhoElseIsHereCmd.class, new WhoElseHereCmdHandler());
-//        _handlerMap.put(GameMsgProtocol.UserMoveToCmd.class, new UserMoveToCmdHandler());
     }
 
     /**

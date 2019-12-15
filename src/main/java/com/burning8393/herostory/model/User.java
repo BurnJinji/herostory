@@ -13,4 +13,10 @@ public class User {
      * 英雄形象
      */
     public String heroAvatar;
+
+    /**
+     * 移动状态
+     */
+    public final MoveState moveState = new MoveState();
+
 }

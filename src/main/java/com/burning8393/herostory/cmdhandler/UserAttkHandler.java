@@ -31,6 +31,9 @@ public class UserAttkHandler implements ICmdHandler<GameMsgProtocol.UserAttkCmd>
         GameMsgProtocol.UserAttkResult attkResult = resultBuilder.build();
         BroadCaster.broadcast(attkResult);
 
+        // 减血消息，可以根据自己的喜好写。。。
+        // 例如加上装备加成， 暴击等等
+        // 这些都属于游戏的业务逻辑了
         GameMsgProtocol.UserSubtractHpResult.Builder subtractResultBuilder = GameMsgProtocol.UserSubtractHpResult.newBuilder();
         subtractResultBuilder.setTargetUserId(targetUserId);
         subtractResultBuilder.setSubtractHp(10);
