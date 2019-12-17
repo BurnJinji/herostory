@@ -21,6 +21,7 @@ public class GameServer {
     public static void main(String[] args) {
         CmdHandlerFactory.init();
         GameMsgRecongnizer.init();
+        MySqlSessionFactory.init();
 
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();

@@ -1,7 +1,5 @@
 package com.burning8393.herostory;
 
-import com.burning8393.herostory.cmdhandler.CmdHandlerFactory;
-import com.burning8393.herostory.cmdhandler.ICmdHandler;
 import com.burning8393.herostory.model.UserManager;
 import com.burning8393.herostory.msg.GameMsgProtocol;
 import com.google.protobuf.GeneratedMessageV3;
@@ -36,8 +34,10 @@ public class GameMsgHandler extends SimpleChannelInboundHandler {
             return;
         }
 
+        // 移除用户
         UserManager.removeUserById(userId);
 
+        // 广播用户离场消息
         GameMsgProtocol.UserQuitResult.Builder resultBuilder = GameMsgProtocol.UserQuitResult.newBuilder();
         resultBuilder.setQuitUserId(userId);
 
@@ -47,20 +47,11 @@ public class GameMsgHandler extends SimpleChannelInboundHandler {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ICmdHandler cmdHandler = CmdHandlerFactory.create(msg.getClass());
-        LOGGER.debug("收到客户端消息， msgClazz = " + msg.getClass().getName() + ", msg = " + msg);
-
-        if (null != cmdHandler) {
-            cmdHandler.handle(ctx, cast(msg));
-        }
-
-    }
-
-    private static <TCmd extends GeneratedMessageV3> TCmd cast(Object msg) {
-        if (null == msg) {
-            return null;
-        } else {
-            return (TCmd) msg;
+        if (msg instanceof GeneratedMessageV3) {
+            // 通过主线程处理器处理消息
+            MainThreadProcessor.getInstance().process(ctx, (GeneratedMessageV3) msg);
         }
     }
+
+
 }

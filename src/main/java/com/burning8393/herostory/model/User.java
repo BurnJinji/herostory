@@ -10,6 +10,11 @@ public class User {
     public int userId;
 
     /**
+     * 英雄名称
+     */
+    public String userName;
+
+    /**
      * 英雄形象
      */
     public String heroAvatar;
