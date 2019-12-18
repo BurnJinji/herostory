@@ -14,6 +14,9 @@ import org.slf4j.LoggerFactory;
  */
 public class GameMsgHandler extends SimpleChannelInboundHandler {
 
+    /**
+     * 日志对象
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(GameMsgHandler.class);
 
     @Override

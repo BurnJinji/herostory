@@ -72,7 +72,7 @@ public class LoginService {
                 userEntity = new UserEntity();
                 userEntity.userName = userName;
                 userEntity.password = password;
-                userEntity.heroAvatar = "Shaman";
+                userEntity.heroAvatar = "Hero_Shaman";
 
                 // 将用户实体添加到数据库
                 dao.insertInto(userEntity);

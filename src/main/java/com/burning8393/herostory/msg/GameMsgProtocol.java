@@ -7208,36 +7208,6 @@ public final class GameMsgProtocol {
   public interface UserStopCmdOrBuilder extends
       // @@protoc_insertion_point(interface_extends:msg.UserStopCmd)
       com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * 停驻用户 id
-     * </pre>
-     *
-     * <code>uint32 stopUserId = 1;</code>
-     * @return The stopUserId.
-     */
-    int getStopUserId();
-
-    /**
-     * <pre>
-     * 停驻在位置 X
-     * </pre>
-     *
-     * <code>float stopAtPosX = 2;</code>
-     * @return The stopAtPosX.
-     */
-    float getStopAtPosX();
-
-    /**
-     * <pre>
-     * 停驻在位置 Y
-     * </pre>
-     *
-     * <code>float stopAtPosY = 3;</code>
-     * @return The stopAtPosY.
-     */
-    float getStopAtPosY();
   }
   /**
    * <pre>
@@ -7290,21 +7260,6 @@ public final class GameMsgProtocol {
             case 0:
               done = true;
               break;
-            case 8: {
-
-              stopUserId_ = input.readUInt32();
-              break;
-            }
-            case 21: {
-
-              stopAtPosX_ = input.readFloat();
-              break;
-            }
-            case 29: {
-
-              stopAtPosY_ = input.readFloat();
-              break;
-            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -7337,48 +7292,6 @@ public final class GameMsgProtocol {
               com.burning8393.herostory.msg.GameMsgProtocol.UserStopCmd.class, com.burning8393.herostory.msg.GameMsgProtocol.UserStopCmd.Builder.class);
     }
 
-    public static final int STOPUSERID_FIELD_NUMBER = 1;
-    private int stopUserId_;
-    /**
-     * <pre>
-     * 停驻用户 id
-     * </pre>
-     *
-     * <code>uint32 stopUserId = 1;</code>
-     * @return The stopUserId.
-     */
-    public int getStopUserId() {
-      return stopUserId_;
-    }
-
-    public static final int STOPATPOSX_FIELD_NUMBER = 2;
-    private float stopAtPosX_;
-    /**
-     * <pre>
-     * 停驻在位置 X
-     * </pre>
-     *
-     * <code>float stopAtPosX = 2;</code>
-     * @return The stopAtPosX.
-     */
-    public float getStopAtPosX() {
-      return stopAtPosX_;
-    }
-
-    public static final int STOPATPOSY_FIELD_NUMBER = 3;
-    private float stopAtPosY_;
-    /**
-     * <pre>
-     * 停驻在位置 Y
-     * </pre>
-     *
-     * <code>float stopAtPosY = 3;</code>
-     * @return The stopAtPosY.
-     */
-    public float getStopAtPosY() {
-      return stopAtPosY_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7393,15 +7306,6 @@ public final class GameMsgProtocol {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (stopUserId_ != 0) {
-        output.writeUInt32(1, stopUserId_);
-      }
-      if (stopAtPosX_ != 0F) {
-        output.writeFloat(2, stopAtPosX_);
-      }
-      if (stopAtPosY_ != 0F) {
-        output.writeFloat(3, stopAtPosY_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -7411,18 +7315,6 @@ public final class GameMsgProtocol {
       if (size != -1) return size;
 
       size = 0;
-      if (stopUserId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, stopUserId_);
-      }
-      if (stopAtPosX_ != 0F) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(2, stopAtPosX_);
-      }
-      if (stopAtPosY_ != 0F) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(3, stopAtPosY_);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -7438,14 +7330,6 @@ public final class GameMsgProtocol {
       }
       com.burning8393.herostory.msg.GameMsgProtocol.UserStopCmd other = (com.burning8393.herostory.msg.GameMsgProtocol.UserStopCmd) obj;
 
-      if (getStopUserId()
-          != other.getStopUserId()) return false;
-      if (java.lang.Float.floatToIntBits(getStopAtPosX())
-          != java.lang.Float.floatToIntBits(
-              other.getStopAtPosX())) return false;
-      if (java.lang.Float.floatToIntBits(getStopAtPosY())
-          != java.lang.Float.floatToIntBits(
-              other.getStopAtPosY())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7457,14 +7341,6 @@ public final class GameMsgProtocol {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + STOPUSERID_FIELD_NUMBER;
-      hash = (53 * hash) + getStopUserId();
-      hash = (37 * hash) + STOPATPOSX_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getStopAtPosX());
-      hash = (37 * hash) + STOPATPOSY_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getStopAtPosY());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7604,12 +7480,6 @@ public final class GameMsgProtocol {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        stopUserId_ = 0;
-
-        stopAtPosX_ = 0F;
-
-        stopAtPosY_ = 0F;
-
         return this;
       }
 
@@ -7636,9 +7506,6 @@ public final class GameMsgProtocol {
       @java.lang.Override
       public com.burning8393.herostory.msg.GameMsgProtocol.UserStopCmd buildPartial() {
         com.burning8393.herostory.msg.GameMsgProtocol.UserStopCmd result = new com.burning8393.herostory.msg.GameMsgProtocol.UserStopCmd(this);
-        result.stopUserId_ = stopUserId_;
-        result.stopAtPosX_ = stopAtPosX_;
-        result.stopAtPosY_ = stopAtPosY_;
         onBuilt();
         return result;
       }
@@ -7687,15 +7554,6 @@ public final class GameMsgProtocol {
 
       public Builder mergeFrom(com.burning8393.herostory.msg.GameMsgProtocol.UserStopCmd other) {
         if (other == com.burning8393.herostory.msg.GameMsgProtocol.UserStopCmd.getDefaultInstance()) return this;
-        if (other.getStopUserId() != 0) {
-          setStopUserId(other.getStopUserId());
-        }
-        if (other.getStopAtPosX() != 0F) {
-          setStopAtPosX(other.getStopAtPosX());
-        }
-        if (other.getStopAtPosY() != 0F) {
-          setStopAtPosY(other.getStopAtPosY());
-        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -7722,132 +7580,6 @@ public final class GameMsgProtocol {
             mergeFrom(parsedMessage);
           }
         }
-        return this;
-      }
-
-      private int stopUserId_ ;
-      /**
-       * <pre>
-       * 停驻用户 id
-       * </pre>
-       *
-       * <code>uint32 stopUserId = 1;</code>
-       * @return The stopUserId.
-       */
-      public int getStopUserId() {
-        return stopUserId_;
-      }
-      /**
-       * <pre>
-       * 停驻用户 id
-       * </pre>
-       *
-       * <code>uint32 stopUserId = 1;</code>
-       * @param value The stopUserId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStopUserId(int value) {
-        
-        stopUserId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 停驻用户 id
-       * </pre>
-       *
-       * <code>uint32 stopUserId = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearStopUserId() {
-        
-        stopUserId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private float stopAtPosX_ ;
-      /**
-       * <pre>
-       * 停驻在位置 X
-       * </pre>
-       *
-       * <code>float stopAtPosX = 2;</code>
-       * @return The stopAtPosX.
-       */
-      public float getStopAtPosX() {
-        return stopAtPosX_;
-      }
-      /**
-       * <pre>
-       * 停驻在位置 X
-       * </pre>
-       *
-       * <code>float stopAtPosX = 2;</code>
-       * @param value The stopAtPosX to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStopAtPosX(float value) {
-        
-        stopAtPosX_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 停驻在位置 X
-       * </pre>
-       *
-       * <code>float stopAtPosX = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearStopAtPosX() {
-        
-        stopAtPosX_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      private float stopAtPosY_ ;
-      /**
-       * <pre>
-       * 停驻在位置 Y
-       * </pre>
-       *
-       * <code>float stopAtPosY = 3;</code>
-       * @return The stopAtPosY.
-       */
-      public float getStopAtPosY() {
-        return stopAtPosY_;
-      }
-      /**
-       * <pre>
-       * 停驻在位置 Y
-       * </pre>
-       *
-       * <code>float stopAtPosY = 3;</code>
-       * @param value The stopAtPosY to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStopAtPosY(float value) {
-        
-        stopAtPosY_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 停驻在位置 Y
-       * </pre>
-       *
-       * <code>float stopAtPosY = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearStopAtPosY() {
-        
-        stopAtPosY_ = 0F;
-        onChanged();
         return this;
       }
       @java.lang.Override
@@ -7908,10 +7640,34 @@ public final class GameMsgProtocol {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint32 targetUserId = 1;</code>
-     * @return The targetUserId.
+     * <pre>
+     * 停驻用户id
+     * </pre>
+     *
+     * <code>uint32 stopUserId = 1;</code>
+     * @return The stopUserId.
      */
-    int getTargetUserId();
+    int getStopUserId();
+
+    /**
+     * <pre>
+     * 停驻在位置 X
+     * </pre>
+     *
+     * <code>float stopAtPosX = 2;</code>
+     * @return The stopAtPosX.
+     */
+    float getStopAtPosX();
+
+    /**
+     * <pre>
+     * 停驻在位置 Y
+     * </pre>
+     *
+     * <code>float stopAtPosY = 3;</code>
+     * @return The stopAtPosY.
+     */
+    float getStopAtPosY();
   }
   /**
    * <pre>
@@ -7964,7 +7720,17 @@ public final class GameMsgProtocol {
               break;
             case 8: {
 
-              targetUserId_ = input.readUInt32();
+              stopUserId_ = input.readUInt32();
+              break;
+            }
+            case 21: {
+
+              stopAtPosX_ = input.readFloat();
+              break;
+            }
+            case 29: {
+
+              stopAtPosY_ = input.readFloat();
               break;
             }
             default: {
@@ -7999,14 +7765,46 @@ public final class GameMsgProtocol {
               com.burning8393.herostory.msg.GameMsgProtocol.UserStopResult.class, com.burning8393.herostory.msg.GameMsgProtocol.UserStopResult.Builder.class);
     }
 
-    public static final int TARGETUSERID_FIELD_NUMBER = 1;
-    private int targetUserId_;
+    public static final int STOPUSERID_FIELD_NUMBER = 1;
+    private int stopUserId_;
     /**
-     * <code>uint32 targetUserId = 1;</code>
-     * @return The targetUserId.
+     * <pre>
+     * 停驻用户id
+     * </pre>
+     *
+     * <code>uint32 stopUserId = 1;</code>
+     * @return The stopUserId.
      */
-    public int getTargetUserId() {
-      return targetUserId_;
+    public int getStopUserId() {
+      return stopUserId_;
+    }
+
+    public static final int STOPATPOSX_FIELD_NUMBER = 2;
+    private float stopAtPosX_;
+    /**
+     * <pre>
+     * 停驻在位置 X
+     * </pre>
+     *
+     * <code>float stopAtPosX = 2;</code>
+     * @return The stopAtPosX.
+     */
+    public float getStopAtPosX() {
+      return stopAtPosX_;
+    }
+
+    public static final int STOPATPOSY_FIELD_NUMBER = 3;
+    private float stopAtPosY_;
+    /**
+     * <pre>
+     * 停驻在位置 Y
+     * </pre>
+     *
+     * <code>float stopAtPosY = 3;</code>
+     * @return The stopAtPosY.
+     */
+    public float getStopAtPosY() {
+      return stopAtPosY_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8023,8 +7821,14 @@ public final class GameMsgProtocol {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (targetUserId_ != 0) {
-        output.writeUInt32(1, targetUserId_);
+      if (stopUserId_ != 0) {
+        output.writeUInt32(1, stopUserId_);
+      }
+      if (stopAtPosX_ != 0F) {
+        output.writeFloat(2, stopAtPosX_);
+      }
+      if (stopAtPosY_ != 0F) {
+        output.writeFloat(3, stopAtPosY_);
       }
       unknownFields.writeTo(output);
     }
@@ -8035,9 +7839,17 @@ public final class GameMsgProtocol {
       if (size != -1) return size;
 
       size = 0;
-      if (targetUserId_ != 0) {
+      if (stopUserId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, targetUserId_);
+          .computeUInt32Size(1, stopUserId_);
+      }
+      if (stopAtPosX_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(2, stopAtPosX_);
+      }
+      if (stopAtPosY_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(3, stopAtPosY_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8054,8 +7866,14 @@ public final class GameMsgProtocol {
       }
       com.burning8393.herostory.msg.GameMsgProtocol.UserStopResult other = (com.burning8393.herostory.msg.GameMsgProtocol.UserStopResult) obj;
 
-      if (getTargetUserId()
-          != other.getTargetUserId()) return false;
+      if (getStopUserId()
+          != other.getStopUserId()) return false;
+      if (java.lang.Float.floatToIntBits(getStopAtPosX())
+          != java.lang.Float.floatToIntBits(
+              other.getStopAtPosX())) return false;
+      if (java.lang.Float.floatToIntBits(getStopAtPosY())
+          != java.lang.Float.floatToIntBits(
+              other.getStopAtPosY())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -8067,8 +7885,14 @@ public final class GameMsgProtocol {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TARGETUSERID_FIELD_NUMBER;
-      hash = (53 * hash) + getTargetUserId();
+      hash = (37 * hash) + STOPUSERID_FIELD_NUMBER;
+      hash = (53 * hash) + getStopUserId();
+      hash = (37 * hash) + STOPATPOSX_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getStopAtPosX());
+      hash = (37 * hash) + STOPATPOSY_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getStopAtPosY());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8206,7 +8030,11 @@ public final class GameMsgProtocol {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        targetUserId_ = 0;
+        stopUserId_ = 0;
+
+        stopAtPosX_ = 0F;
+
+        stopAtPosY_ = 0F;
 
         return this;
       }
@@ -8234,7 +8062,9 @@ public final class GameMsgProtocol {
       @java.lang.Override
       public com.burning8393.herostory.msg.GameMsgProtocol.UserStopResult buildPartial() {
         com.burning8393.herostory.msg.GameMsgProtocol.UserStopResult result = new com.burning8393.herostory.msg.GameMsgProtocol.UserStopResult(this);
-        result.targetUserId_ = targetUserId_;
+        result.stopUserId_ = stopUserId_;
+        result.stopAtPosX_ = stopAtPosX_;
+        result.stopAtPosY_ = stopAtPosY_;
         onBuilt();
         return result;
       }
@@ -8283,8 +8113,14 @@ public final class GameMsgProtocol {
 
       public Builder mergeFrom(com.burning8393.herostory.msg.GameMsgProtocol.UserStopResult other) {
         if (other == com.burning8393.herostory.msg.GameMsgProtocol.UserStopResult.getDefaultInstance()) return this;
-        if (other.getTargetUserId() != 0) {
-          setTargetUserId(other.getTargetUserId());
+        if (other.getStopUserId() != 0) {
+          setStopUserId(other.getStopUserId());
+        }
+        if (other.getStopAtPosX() != 0F) {
+          setStopAtPosX(other.getStopAtPosX());
+        }
+        if (other.getStopAtPosY() != 0F) {
+          setStopAtPosY(other.getStopAtPosY());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -8315,32 +8151,128 @@ public final class GameMsgProtocol {
         return this;
       }
 
-      private int targetUserId_ ;
+      private int stopUserId_ ;
       /**
-       * <code>uint32 targetUserId = 1;</code>
-       * @return The targetUserId.
+       * <pre>
+       * 停驻用户id
+       * </pre>
+       *
+       * <code>uint32 stopUserId = 1;</code>
+       * @return The stopUserId.
        */
-      public int getTargetUserId() {
-        return targetUserId_;
+      public int getStopUserId() {
+        return stopUserId_;
       }
       /**
-       * <code>uint32 targetUserId = 1;</code>
-       * @param value The targetUserId to set.
+       * <pre>
+       * 停驻用户id
+       * </pre>
+       *
+       * <code>uint32 stopUserId = 1;</code>
+       * @param value The stopUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setTargetUserId(int value) {
+      public Builder setStopUserId(int value) {
         
-        targetUserId_ = value;
+        stopUserId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 targetUserId = 1;</code>
+       * <pre>
+       * 停驻用户id
+       * </pre>
+       *
+       * <code>uint32 stopUserId = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTargetUserId() {
+      public Builder clearStopUserId() {
         
-        targetUserId_ = 0;
+        stopUserId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private float stopAtPosX_ ;
+      /**
+       * <pre>
+       * 停驻在位置 X
+       * </pre>
+       *
+       * <code>float stopAtPosX = 2;</code>
+       * @return The stopAtPosX.
+       */
+      public float getStopAtPosX() {
+        return stopAtPosX_;
+      }
+      /**
+       * <pre>
+       * 停驻在位置 X
+       * </pre>
+       *
+       * <code>float stopAtPosX = 2;</code>
+       * @param value The stopAtPosX to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStopAtPosX(float value) {
+        
+        stopAtPosX_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 停驻在位置 X
+       * </pre>
+       *
+       * <code>float stopAtPosX = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStopAtPosX() {
+        
+        stopAtPosX_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float stopAtPosY_ ;
+      /**
+       * <pre>
+       * 停驻在位置 Y
+       * </pre>
+       *
+       * <code>float stopAtPosY = 3;</code>
+       * @return The stopAtPosY.
+       */
+      public float getStopAtPosY() {
+        return stopAtPosY_;
+      }
+      /**
+       * <pre>
+       * 停驻在位置 Y
+       * </pre>
+       *
+       * <code>float stopAtPosY = 3;</code>
+       * @param value The stopAtPosY to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStopAtPosY(float value) {
+        
+        stopAtPosY_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 停驻在位置 Y
+       * </pre>
+       *
+       * <code>float stopAtPosY = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStopAtPosY() {
+        
+        stopAtPosY_ = 0F;
         onChanged();
         return this;
       }
@@ -12323,11 +12255,19 @@ public final class GameMsgProtocol {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 英雄形象
+     * </pre>
+     *
      * <code>string heroAvatar = 1;</code>
      * @return The heroAvatar.
      */
     java.lang.String getHeroAvatar();
     /**
+     * <pre>
+     * 英雄形象
+     * </pre>
+     *
      * <code>string heroAvatar = 1;</code>
      * @return The bytes for heroAvatar.
      */
@@ -12427,6 +12367,10 @@ public final class GameMsgProtocol {
     public static final int HEROAVATAR_FIELD_NUMBER = 1;
     private volatile java.lang.Object heroAvatar_;
     /**
+     * <pre>
+     * 英雄形象
+     * </pre>
+     *
      * <code>string heroAvatar = 1;</code>
      * @return The heroAvatar.
      */
@@ -12443,6 +12387,10 @@ public final class GameMsgProtocol {
       }
     }
     /**
+     * <pre>
+     * 英雄形象
+     * </pre>
+     *
      * <code>string heroAvatar = 1;</code>
      * @return The bytes for heroAvatar.
      */
@@ -12770,6 +12718,10 @@ public final class GameMsgProtocol {
 
       private java.lang.Object heroAvatar_ = "";
       /**
+       * <pre>
+       * 英雄形象
+       * </pre>
+       *
        * <code>string heroAvatar = 1;</code>
        * @return The heroAvatar.
        */
@@ -12786,6 +12738,10 @@ public final class GameMsgProtocol {
         }
       }
       /**
+       * <pre>
+       * 英雄形象
+       * </pre>
+       *
        * <code>string heroAvatar = 1;</code>
        * @return The bytes for heroAvatar.
        */
@@ -12803,6 +12759,10 @@ public final class GameMsgProtocol {
         }
       }
       /**
+       * <pre>
+       * 英雄形象
+       * </pre>
+       *
        * <code>string heroAvatar = 1;</code>
        * @param value The heroAvatar to set.
        * @return This builder for chaining.
@@ -12818,6 +12778,10 @@ public final class GameMsgProtocol {
         return this;
       }
       /**
+       * <pre>
+       * 英雄形象
+       * </pre>
+       *
        * <code>string heroAvatar = 1;</code>
        * @return This builder for chaining.
        */
@@ -12828,6 +12792,10 @@ public final class GameMsgProtocol {
         return this;
       }
       /**
+       * <pre>
+       * 英雄形象
+       * </pre>
+       *
        * <code>string heroAvatar = 1;</code>
        * @param value The bytes for heroAvatar to set.
        * @return This builder for chaining.
@@ -13637,31 +13605,30 @@ public final class GameMsgProtocol {
       "osX\030\002 \001(\002\022\024\n\014moveFromPosY\030\003 \001(\002\022\022\n\nmoveT" +
       "oPosX\030\004 \001(\002\022\022\n\nmoveToPosY\030\005 \001(\002\022\025\n\rmoveS" +
       "tartTime\030\006 \001(\004\"$\n\016UserQuitResult\022\022\n\nquit" +
-      "UserId\030\001 \001(\r\"I\n\013UserStopCmd\022\022\n\nstopUserI" +
-      "d\030\001 \001(\r\022\022\n\nstopAtPosX\030\002 \001(\002\022\022\n\nstopAtPos" +
-      "Y\030\003 \001(\002\"&\n\016UserStopResult\022\024\n\014targetUserI" +
-      "d\030\001 \001(\r\"#\n\013UserAttkCmd\022\024\n\014targetUserId\030\001" +
-      " \001(\r\":\n\016UserAttkResult\022\022\n\nattkUserId\030\001 \001" +
-      "(\r\022\024\n\014targetUserId\030\002 \001(\r\"@\n\024UserSubtract" +
-      "HpResult\022\024\n\014targetUserId\030\001 \001(\r\022\022\n\nsubtra" +
-      "ctHp\030\002 \001(\r\"%\n\rUserDieResult\022\024\n\014targetUse" +
-      "rId\030\001 \001(\r\"2\n\014UserLoginCmd\022\020\n\010userName\030\001 " +
-      "\001(\t\022\020\n\010password\030\002 \001(\t\"G\n\017UserLoginResult" +
-      "\022\016\n\006userId\030\001 \001(\r\022\020\n\010userName\030\002 \001(\t\022\022\n\nhe" +
-      "roAvatar\030\003 \001(\t\"#\n\rSelectHeroCmd\022\022\n\nheroA" +
-      "vatar\030\001 \001(\t\"&\n\020SelectHeroResult\022\022\n\nheroA" +
-      "vatar\030\001 \001(\t*\214\003\n\007MsgCode\022\022\n\016USER_ENTRY_CM" +
-      "D\020\000\022\025\n\021USER_ENTRY_RESULT\020\001\022\030\n\024WHO_ELSE_I" +
-      "S_HERE_CMD\020\002\022\033\n\027WHO_ELSE_IS_HERE_RESULT\020" +
-      "\003\022\024\n\020USER_MOVE_TO_CMD\020\004\022\027\n\023USER_MOVE_TO_" +
-      "RESULT\020\005\022\024\n\020USER_QUIT_RESULT\020\006\022\021\n\rUSER_S" +
-      "TOP_CMD\020\007\022\024\n\020USER_STOP_RESULT\020\010\022\021\n\rUSER_" +
-      "ATTK_CMD\020\t\022\024\n\020USER_ATTK_RESULT\020\n\022\033\n\027USER" +
-      "_SUBTRACT_HP_RESULT\020\013\022\023\n\017USER_DIE_RESULT" +
-      "\020\014\022\022\n\016USER_LOGIN_CMD\020\r\022\025\n\021USER_LOGIN_RES" +
-      "ULT\020\016\022\023\n\017SELECT_HERO_CMD\020\017\022\026\n\022SELECT_HER" +
-      "O_RESULT\020\020B\037\n\035com.burning8393.herostory." +
-      "msgb\006proto3"
+      "UserId\030\001 \001(\r\"\r\n\013UserStopCmd\"L\n\016UserStopR" +
+      "esult\022\022\n\nstopUserId\030\001 \001(\r\022\022\n\nstopAtPosX\030" +
+      "\002 \001(\002\022\022\n\nstopAtPosY\030\003 \001(\002\"#\n\013UserAttkCmd" +
+      "\022\024\n\014targetUserId\030\001 \001(\r\":\n\016UserAttkResult" +
+      "\022\022\n\nattkUserId\030\001 \001(\r\022\024\n\014targetUserId\030\002 \001" +
+      "(\r\"@\n\024UserSubtractHpResult\022\024\n\014targetUser" +
+      "Id\030\001 \001(\r\022\022\n\nsubtractHp\030\002 \001(\r\"%\n\rUserDieR" +
+      "esult\022\024\n\014targetUserId\030\001 \001(\r\"2\n\014UserLogin" +
+      "Cmd\022\020\n\010userName\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"" +
+      "G\n\017UserLoginResult\022\016\n\006userId\030\001 \001(\r\022\020\n\010us" +
+      "erName\030\002 \001(\t\022\022\n\nheroAvatar\030\003 \001(\t\"#\n\rSele" +
+      "ctHeroCmd\022\022\n\nheroAvatar\030\001 \001(\t\"&\n\020SelectH" +
+      "eroResult\022\022\n\nheroAvatar\030\001 \001(\t*\214\003\n\007MsgCod" +
+      "e\022\022\n\016USER_ENTRY_CMD\020\000\022\025\n\021USER_ENTRY_RESU" +
+      "LT\020\001\022\030\n\024WHO_ELSE_IS_HERE_CMD\020\002\022\033\n\027WHO_EL" +
+      "SE_IS_HERE_RESULT\020\003\022\024\n\020USER_MOVE_TO_CMD\020" +
+      "\004\022\027\n\023USER_MOVE_TO_RESULT\020\005\022\024\n\020USER_QUIT_" +
+      "RESULT\020\006\022\021\n\rUSER_STOP_CMD\020\007\022\024\n\020USER_STOP" +
+      "_RESULT\020\010\022\021\n\rUSER_ATTK_CMD\020\t\022\024\n\020USER_ATT" +
+      "K_RESULT\020\n\022\033\n\027USER_SUBTRACT_HP_RESULT\020\013\022" +
+      "\023\n\017USER_DIE_RESULT\020\014\022\022\n\016USER_LOGIN_CMD\020\r" +
+      "\022\025\n\021USER_LOGIN_RESULT\020\016\022\023\n\017SELECT_HERO_C" +
+      "MD\020\017\022\026\n\022SELECT_HERO_RESULT\020\020B\037\n\035com.burn" +
+      "ing8393.herostory.msgb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13726,13 +13693,13 @@ public final class GameMsgProtocol {
     internal_static_msg_UserStopCmd_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_msg_UserStopCmd_descriptor,
-        new java.lang.String[] { "StopUserId", "StopAtPosX", "StopAtPosY", });
+        new java.lang.String[] { });
     internal_static_msg_UserStopResult_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_msg_UserStopResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_msg_UserStopResult_descriptor,
-        new java.lang.String[] { "TargetUserId", });
+        new java.lang.String[] { "StopUserId", "StopAtPosX", "StopAtPosY", });
     internal_static_msg_UserAttkCmd_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_msg_UserAttkCmd_fieldAccessorTable = new

@@ -129,18 +129,17 @@ message UserQuitResult {
 //////////////////////////////////////////////////////////////////////////
 // 指令
 message UserStopCmd {
-    // 停驻用户 id
-    uint32 stopUserId = 1;
-    // 停驻在位置 X
-    float stopAtPosX = 2;
-    // 停驻在位置 Y
-    float stopAtPosY = 3;
 }
 
 //
 // 结果
 message UserStopResult {
-    uint32 targetUserId = 1;
+    // 停驻用户id
+    uint32 stopUserId = 1;
+    // 停驻在位置 X
+    float stopAtPosX = 2;
+    // 停驻在位置 Y
+    float stopAtPosY = 3;
 }
 
 //
@@ -201,6 +200,7 @@ message UserLoginResult {
 //////////////////////////////////////////////////////////////////////////
 // 指令
 message SelectHeroCmd {
+    // 英雄形象
     string heroAvatar = 1;
 }
 

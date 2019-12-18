@@ -14,10 +14,21 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 服务器入口类
+ */
 public class GameServer {
 
+    /**
+     * 日志对象
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(GameServer.class);
 
+    /**
+     * 应用主函数
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         CmdHandlerFactory.init();
         GameMsgRecongnizer.init();
