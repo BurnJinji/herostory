@@ -49,6 +49,12 @@ public final class MainThreadProcessor {
         return INSTANCE;
     }
 
+    /**
+     * 处理客户端消息
+     *
+     * @param ctx 客户端信道上下文
+     * @param msg 客户端消息
+     */
     public void process(ChannelHandlerContext ctx, GeneratedMessageV3 msg) {
         if (null == ctx || null == msg) {
             return;
@@ -58,7 +64,7 @@ public final class MainThreadProcessor {
         Class<?> msgClazz = msg.getClass();
 
         LOGGER.info(
-            "受到客户端消息， msgClazz = {}",
+            "收到客户端消息， msgClazz = {}",
             msgClazz.getName()
         );
 
@@ -85,6 +91,18 @@ public final class MainThreadProcessor {
             }
         });
 
+    }
+
+    /**
+     * 处理消息对象
+     *
+     * @param r Runnable
+     */
+    public void process(Runnable r) {
+        if (null == r) {
+            return;
+        }
+        _es.submit(r);
     }
 
     /**
