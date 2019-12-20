@@ -29,4 +29,9 @@ public class User {
      */
     public final MoveState moveState = new MoveState();
 
+    /**
+     * 已死亡
+     */
+    public boolean died;
+
 }

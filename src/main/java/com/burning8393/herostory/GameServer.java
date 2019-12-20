@@ -1,6 +1,7 @@
 package com.burning8393.herostory;
 
 import com.burning8393.herostory.cmdhandler.CmdHandlerFactory;
+import com.burning8393.herostory.util.RedisUtil;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -33,6 +34,7 @@ public class GameServer {
         CmdHandlerFactory.init();
         GameMsgRecongnizer.init();
         MySqlSessionFactory.init();
+        RedisUtil.init();
 
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();

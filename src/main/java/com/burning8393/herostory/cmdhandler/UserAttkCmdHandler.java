@@ -3,6 +3,8 @@ package com.burning8393.herostory.cmdhandler;
 import com.burning8393.herostory.BroadCaster;
 import com.burning8393.herostory.model.User;
 import com.burning8393.herostory.model.UserManager;
+import com.burning8393.herostory.mq.MQProducer;
+import com.burning8393.herostory.mq.VictorMsg;
 import com.burning8393.herostory.msg.GameMsgProtocol;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.AttributeKey;
@@ -10,7 +12,7 @@ import io.netty.util.AttributeKey;
 /**
  * 攻击消息处理器
  */
-public class UserAttkHandler implements ICmdHandler<GameMsgProtocol.UserAttkCmd> {
+public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkCmd> {
     @Override
     public void handle(ChannelHandlerContext ctx, GameMsgProtocol.UserAttkCmd cmd) {
         if (null == ctx || null == cmd) {
@@ -51,6 +53,17 @@ public class UserAttkHandler implements ICmdHandler<GameMsgProtocol.UserAttkCmd>
         if (targetUser.currHp <= 0) {
             // 广播死亡消息
             broadcastDie(targetUserId);
+
+            if (!targetUser.died) {
+                // 设置死亡标志
+                targetUser.died = true;
+
+                // 发送消息到MQ
+                VictorMsg mqMsq = new VictorMsg();
+                mqMsq.winnerId = attkUserId;
+                mqMsq.loserId = targetUserId;
+                MQProducer.sendMsg("Victor", mqMsq);
+            }
         }
     }
 
